@@ -27,7 +27,7 @@ Route::get('login', function () {
 
 Route::get('/prueba', [PruebaController::class, 'prueba']);
 
-Route::get('/api/register', [UserController::class, 'register']);
+Route::post('/api/register', [UserController::class, 'register']);
 
 
 
