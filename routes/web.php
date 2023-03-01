@@ -25,10 +25,21 @@ Route::get('login', function () {
     return view('welcome');
 });
 
-Route::get('/prueba', [PruebaController::class, 'prueba']);
+//Get Conseguir datos o recursos
+//Post Guardar datos o recursos o logica de un formulario
+//Put Actuelizar datos  o recursos
+//Delete Eliminar datos o recursos
 
+// Route::get('/prueba', [PruebaController::class, 'prueba']);
+//Rutas de los usuarios
 Route::post('/api/register', [UserController::class, 'register']);
 
+Route::post('/api/login', [UserController::class, 'login']);
 
+Route::put('/api/update', [UserController::class, 'update']);
 
+Route::post('/api/upload' ,[UserController::class, 'upload'])->middleware(\App\Http\Middleware\ApiAuthMiddleware::class);
 
+Route::get('/api/avatar/{filename}', [UserController::class, 'getImage']);
+
+Route::get('/api/detail/{id}', [UserController::class, 'detail']);
